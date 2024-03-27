@@ -1,6 +1,10 @@
 function repeatString(string, num) {
     let finalScript;
-    return finalScript= string.repeat(num);
+    if (num < 0) {
+        return finalScript = 'ERROR';
+    } else {
+        return finalScript= string.repeat(num);
+    }
 };
 
 repeatString('hey', 3)
