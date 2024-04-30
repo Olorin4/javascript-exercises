@@ -1,13 +1,26 @@
-// OBJECT CONSTRUCTOR
-function Book(title, author, pages, status) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-    this.info = function() {
-        return `Title: ${this.title} by ${this.author}\nPages: ${this.pages}\nStatus: ${this.status}`;
+// function outer(){
+//     const outerVar = 'Hey I am the outer Var';
+
+//     return function inner(){
+//         const innerVar = "hey I am an inner var";
+//         console.log(innerVar);
+//         console.log(outerVar);
+//     }
+
+// }
+
+// const innerFn = outer();
+// innerFn();
+
+function createGreeting(greeting = "") {
+    const myGreet = greeting.toUpperCase();
+    return function(name) {
+      return `${myGreet} ${name}`;
     };
 }
-
-const book = new Book('The Hobbit', "J.R.R. Tolkien", 322, "read");
-console.log(book.title);
+  
+const sayHello = createGreeting('hello');
+const sayHey = createGreeting('hey');
+console.log(sayHello('wes'));
+console.log(sayHello('kait'));
+console.log(sayHey('kait'));
